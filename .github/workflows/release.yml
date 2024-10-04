@@ -15,7 +15,7 @@ jobs:
         cd release
         tar -czf ../mac_release.tar.gz *
         cd ..
--name:​UploadAppToArtifact
+ - name:​UploadAppToArtifact
 steps:
 ​​uses​:​actions/upload-artifact@v4
 ​​with​:
