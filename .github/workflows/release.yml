@@ -61,7 +61,7 @@ jobs:
         cd droidev
         unzip -q ../droidev.zip
         ./cd ../jni
-gradlew assembleRunnerDebug assembleStubRelease
+        ./gradlew assembleRunnerDebug assembleStubRelease
         mv build/outputs/apk/runner/release/nvgt-runner-release.apk ../nvgt_$nvgt_version.apk
         cd ..
     - name: UploadToArtifact
