@@ -73,7 +73,6 @@ steps:
 ​​uses​:​actions/upload-artifact@v4
 ​​with​:
 ​​path​:​"release/stub/nvgt_android.bin"
-
 windows_build:
 runs-on: windows-latest
 steps:
