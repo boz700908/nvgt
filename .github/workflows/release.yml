@@ -8,11 +8,11 @@ steps:
 - uses: actions/checkout@v4
 - name: build
 run: |
-brew install scons
-cp build/build_macos.sh .
-sudo chmod +x build_macos.sh
-./build_macos.sh ci
-cd release
+brew  install  scons
+cp  build/build_macos.sh  .
+sudo  chmod  +x  build_macos.sh
+./build_macos.sh  ci
+cd  release
 tar -czf ../mac_release.tar.gz *
 cd ..
 -name:​UploadAppToArtifact
