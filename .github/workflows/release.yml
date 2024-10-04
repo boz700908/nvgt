@@ -70,7 +70,7 @@ uses: actions/upload-artifact@v4
 with:
 name: android_release
         path:​"nvgt_$nvgt_version.apk"
-    - name: UploadToArtifact2
+       - name: UploadToArtifact2
 ​steps​:
 uses: actions/upload-artifact@v4
 with:
