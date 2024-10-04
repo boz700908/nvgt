@@ -64,14 +64,14 @@ jobs:
         ./gradlew assembleRunnerDebug assembleStubRelease
         mv build/outputs/apk/runner/release/nvgt-runner-release.apk ../nvgt_$nvgt_version.apk
         cd ..
-    - name: UploadToArtifact
-​steps​:
+- name: Upload
+steps:
 uses: actions/upload-artifact@v4
 with:
 name: android_release
         path:​"nvgt_$nvgt_version.apk"
-       - name: UploadToArtifact2
-​steps​:
+- name: Upload2
+steps:
 uses: actions/upload-artifact@v4
 with:
 name: android_release2
