@@ -15,11 +15,11 @@ jobs:
         cd release
         tar -czf ../mac_release.tar.gz *
         cd ..
-​      - ​name​: ​Upload App To Artifact
+-name:​UploadAppToArtifact
 steps:
-​        ​uses​: ​actions/upload-artifact@v4
-​        ​with​:
-​          ​path​: ​"mac_release.tar.gz"
+​​uses​:​actions/upload-artifact@v4
+​​with​:
+​​path​:​"mac_release.tar.gz"
 
   linux_build:
     runs-on: ubuntu-latest
@@ -32,11 +32,11 @@ steps:
         cd release
         tar -czf ../linux_release.tar.gz *
         cd ..
-​      - ​name​: ​Upload App To Artifact
+​-​name​:​UploadAppToArtifact
 steps:
-​        ​uses​: ​actions/upload-artifact@v4
-​        ​with​:
-​          ​path​: ​"linux_release.tar.gz"
+​​uses​:​actions/upload-artifact@v4
+​​with​:
+​​path​:​"linux_release.tar.gz"
 
   android_build:
     runs-on: ubuntu-latest
@@ -65,16 +65,16 @@ steps:
 ./gradlew assembleRunnerDebug assembleStubRelease
         mv build/outputs/apk/runner/release/nvgt-runner-release.apk ../nvgt_$nvgt_version.apk
         cd ..
--name​:Upload App To Artifact
+-name​:UploadAppToArtifact
 steps:
-​        ​uses​: ​actions/upload-artifact@v4
-​        ​with​:
-​          ​path​: ​"nvgt_$nvgt_version.apk"
-​      - ​name​: ​Upload App To Artifact
+​​uses​:​actions/upload-artifact@v4
+​​with​:
+​​path​:​"nvgt_$nvgt_version.apk"
+​-​name​:​UploadAppToArtifact
 steps:
-​        ​uses​: ​actions/upload-artifact@v4
-​        ​with​:
-​          ​path​: ​"release/stub/nvgt_android.bin"
+​​uses​:​actions/upload-artifact@v4
+​​with​:
+​​path​:​"release/stub/nvgt_android.bin"
 
   windows_build:
     runs-on: windows-latest
@@ -90,8 +90,8 @@ steps:
         cd release
         tar -czf ../windows_release.tar.gz *
         cd ..
-​      - ​name​: ​Upload App To Artifact
+​-​name​:​UploadAppToArtifact
 steps:
-​        ​uses​: ​actions/upload-artifact@v4
-​        ​with​:
-​          ​path​: ​"windows_release.tar.gz"
+​​uses​:​actions/upload-artifact@v4
+​​with​:
+​​path​:​"windows_release.tar.gz"
