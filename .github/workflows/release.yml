@@ -62,8 +62,8 @@ jobs:
         unzip -q ../droidev.zip
         cd ../jni
         ./gradlew assembleRunnerDebug assembleStubRelease
-        cd ..
-        tar -czf ../android_release.tar.gz *
+        cd ../..
+        tar -czf android_release.tar.gz *
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
