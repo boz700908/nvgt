@@ -37,33 +37,33 @@ jobs:
         name: linux_release
         path: linux_release.tar.gz
 
-  android_build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '17'
-        cache: 'gradle'
-    - uses: nttld/setup-ndk@v1
-      with:
-        ndk-version: r25c
-        link-to-sdk: true
-        add-to-path: true
-    - name: set_version
-      run: |
-        python3 build/ci_set_version.py
-    - name: build
-      run: |
-        curl -s -O https://nvgt.gg/droidev.zip
-        mkdir -p droidev
-        cd droidev
-        unzip -q ../droidev.zip
-        ./cd ../jni
+android_build:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- uses: actions/setup-java@v4
+with:
+distribution: 'temurin'
+java-version: '17'
+cache: 'gradle'
+- uses: nttld/setup-ndk@v1
+with:
+ndk-version: r25c
+link-to-sdk: true
+add-to-path: true
+- name: set_version
+run: |
+python3 build/ci_set_version.py
+- name: build
+run: |
+curl -s -O https://nvgt.gg/droidev.zip
+mkdir -p droidev
+cd droidev
+unzip -q ../droidev.zip
+cd ../jni
         ./gradlew assembleRunnerDebug assembleStubRelease
-        mv build/outputs/apk/runner/release/nvgt-runner-release.apk ../nvgt_$nvgt_version.apk
-        cd ..
+mv build/outputs/apk/runner/release/nvgt-runner-release.apk ../nvgt_$nvgt_version.apk
+cd ..
 - name: Upload
 steps:
 uses: actions/upload-artifact@v4
@@ -76,7 +76,6 @@ uses: actions/upload-artifact@v4
 with:
 name: android_release2
         ​​path​:​"release/stub/nvgt_android.bin"
-
 
   windows_build:
     runs-on: windows-latest
