@@ -62,19 +62,13 @@ jobs:
         unzip -q ../droidev.zip
         cd ../jni
         ./gradlew assembleRunnerDebug assembleStubRelease
-        mv build/outputs/apk/runner/debug/nvgt-runner-debug.apk ../nvgt_$nvgt_version.apk
-        mv build/outputs/apk/stub/release/nvgt-stub-release.apk ../nvgt_stub_$nvgt_version.apk
         cd ..
+        tar -czf ../android_release.tar.gz *
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
         name: android_release
-        path: "nvgt_$nvgt_version.apk"
-    - name: Upload
-      uses: actions/upload-artifact@v4
-      with:
-        name: android_stub_release
-        path: "nvgt_stub_$nvgt_version.apk"
+        path: android_release.tar.gz
 
   windows_build:
     runs-on: windows-latest
