@@ -100,15 +100,15 @@ jobs:
     needs: ["linux_build", "mac_build", "windows_build"]
     steps:
     - uses: actions/checkout@v4
-    - name: download artifacts
+    - name: download_linux_artifact
       uses: actions/download-artifact@v4
       with:
         name: linux_release
-    - name: download artifacts
+    - name: download_mac_artifact
       uses: actions/download-artifact@v4
       with:
         name: mac_release
-    - name: download artifacts
+    - name: download_windows_artifact
       uses: actions/download-artifact@v4
       with:
         name: windows_release
@@ -148,15 +148,15 @@ jobs:
     needs: ["linux_build", "mac_build", "windows_build"]
     steps:
     - uses: actions/checkout@v4
-    - name: download artifacts
+    - name: download_linux_artifact
       uses: actions/download-artifact@v4
       with:
         name: linux_release
-    - name: download artifacts
+    - name: download_windows_artifact
       uses: actions/download-artifact@v4
       with:
         name: windows_release
-    - name: download artifacts
+    - name: download_mac_artifact
       uses: actions/download-artifact@v4
       with:
         name: mac_release
@@ -195,18 +195,18 @@ jobs:
     needs: ["linux_build", "mac_build", "windows_build"]
     steps:
     - uses: actions/checkout@v4
-    - name: download artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: linux_release
-    - name: download artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: windows_release
-    - name: download artifacts
+    - name: download_mac_artifact
       uses: actions/download-artifact@v4
       with:
         name: mac_release
+    - name: download_windows_artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: windows_release
+    - name: download_linux_artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: linux_release
     - name: package
       id: package_step
       run: |
